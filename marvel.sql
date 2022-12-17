@@ -142,15 +142,15 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 -- Praticando select
--- 1) O operador LIKE
--- Todos os atores com o nome iniciado por "C":
+
+-- 1) O operador LIKE (todos os atores com nome iniciado por "C")
 
 select ator.nomeator as "Ator/Atriz", elenco.cpf as "CPF" 
 	from ator, elenco
 		where ator.cpf = elenco.cpf and
         ator.nomeator LIKE 'C%';
 
--- 2) Operações com números (= ; != ; > ; < ; BETWEEN);
+-- 2) Operações com números (= ; != ; > ; < ; BETWEEN)
 
 select ator.nomeator as "Ator/atriz", elenco.cpf as "CPF"
 	from ator, elenco
