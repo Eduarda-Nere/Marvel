@@ -141,6 +141,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+-- Praticando select
 -- 1) O operador LIKE
 -- Todos os atores com o nome iniciado por "C":
 
@@ -163,18 +164,8 @@ select filmes.nomefilme as "Nome do filme", diretor.nomediretor as "Diretor"
       filmes.idfilmes = filmes_diretor.idfilmes and
         diretor.iddiretor = filmes_diretor.iddiretor and
             filmes.idfilmes = '2';
-            
--- 3) Operações de agregação (COUNT(*); SUM(*); AVERAGE(*)) com agrupamento
--- Resultado: Dois filmes possuem o mesmo gênero
-            
-select genero.nomegenero as "Gênero do filme", count(*) as "Quantidade de filmes com o mesmo gênero"
-	from genero, filmes
-		where 
-        genero.idgenero = filmes.idgenero 
-			GROUP BY
-			filmes.idgenero = '3';
         
--- 4) Operações de ordenação, com ou sem o LIMIT()
+-- 3) Operações de ordenação, com ou sem o LIMIT()
 
 select filmes.nomefilme as "Filmes em ordem decrescente"
   from filmes, elenco
@@ -188,7 +179,7 @@ select filmes.nomefilme as "Filmes em ordem alfabética"
         filmes.idfilmes = elenco.idfilmes
           GROUP BY filmes.nomefilme ASC;
 
--- 5) Algum LEFT ou RIGHT JOIN
+-- 4) Utilizando LEFT ou RIGHT JOIN
 
 select diretor.nomediretor as "Diretor", filmes_diretor.idfilmes as "Produção"
 	 from diretor 
